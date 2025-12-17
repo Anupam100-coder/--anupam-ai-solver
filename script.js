@@ -106,9 +106,8 @@ function toggleSection(sectionId, checkboxId) {
 }
 
 // Handle Select All checkbox
-function toggleAll() {
-  const selectAll = document.getElementById("selectAll").checked;
-
+// Unified toggle function for Select All and Clear All
+function toggleAll(select) {
   const mappings = [
     {checkId: "exprCheck", sectionId: "expr-section"},
     {checkId: "linCheck", sectionId: "lin-section"},
@@ -116,23 +115,14 @@ function toggleAll() {
   ];
 
   mappings.forEach(m => {
-    document.getElementById(m.checkId).checked = selectAll;
-    document.getElementById(m.sectionId).style.display = selectAll ? "block" : "none";
+    document.getElementById(m.checkId).checked = select;
+    document.getElementById(m.sectionId).style.display = select ? "block" : "none";
   });
 }
 
-// Handle Clear All button
-function clearAll() {
-  document.getElementById("selectAll").checked = false;
-
-  const mappings = [
-    {checkId: "exprCheck", sectionId: "expr-section"},
-    {checkId: "linCheck", sectionId: "lin-section"},
-    {checkId: "quadCheck", sectionId: "quad-section"}
-  ];
-
-  mappings.forEach(m => {
-    document.getElementById(m.checkId).checked = false;
-    document.getElementById(m.sectionId).style.display = "none";
-  });
+// Individual toggle
+function toggleSection(sectionId, checkboxId) {
+  const section = document.getElementById(sectionId);
+  const checkbox = document.getElementById(checkboxId);
+  section.style.display = checkbox.checked ? "block" : "none";
 }
