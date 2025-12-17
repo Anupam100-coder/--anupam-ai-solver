@@ -108,3 +108,15 @@ button:active { transform: translateY(0); }
   margin-top: 20px;
   padding-top: 16px;
 }
+/* Align checkboxes neatly with their labels */
+input[type="checkbox"] {
+  vertical-align: middle;   /* centers checkbox with text */
+  margin-right: 6px;        /* spacing between box and text */
+}
+
+label {
+  display: inline-flex;
+  align-items: center;      /* aligns checkbox and text on the same line */
+  margin-bottom: 6px;       /* spacing between each option */
+  cursor: pointer;          /* makes label clickable */
+}
